@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - MoneyMinder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+
+     <div class="Note" style="width: 1920px; height: 1096px; position: relative; background:  #c2e2d9">
+
+      <button class="Addbtn" style="width: 89px; height: 91px; left: 1777px; top: 533px; position: absolute; background: none; border: none; padding: 0; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+          onclick="overlayTAon()"
+      >
+        <img style="width: 89px; height: 89px; position: absolute; top: 1px; left: 0px; border-radius: 50%;" 
+        src="assets/plusbtn.png">
+      </button>
+    
+
+       <div class="Notingfeature" style="width: 1499px; height: 946px; left: 248px; top: 111px; position: absolute">
+         
+          <div class="Expenseincomebar" style="width: 1466px; height: 935px; left: 0px; top: 0px; position: absolute; background: #dfeee9;  border-radius: 10px"></div>
+          <div class="Monthsection" style="width: 1466px; height: 51px; left: 0px; top: 0px; position: absolute; background: #8ecec2;  border-top-left-radius: 10px; border-top-right-radius: 10px"></div>
+          
+          
+          <div class="Transactioncount" style="width: 1466px; height: 51px; left: 0px; top: 895px; position: absolute">
+            <div class="Transactioncountbar" style="width: 1466px; height: 51px; left: 0px; top: 0px; position: absolute; 
+            background: #C5EDE1; border-top-left-radius: 10px; border-top-right-radius: 10px; border-top: 1px #496960 solid; border-bottom: 1px #819891 solid"></div>
+            
+            
+            <div class="TotalTransactions9" style="width: 409px; height: 27px; left: 17px; top: 12px; position: absolute">
+              <span style="color: #0A6756; font-size: 24px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">
+              Total Transactions:</span>
+
+              <span style="color: #0A6756; font-size: 24px; font-family: Montserrat; font-weight: 600; word-wrap: break-word"> 
+                8</span>
+
+              </div>
+           
+
+              <div class="TotalSpendingRp64900000" style="width: 404px; height: 27px; left: 1039px; top: 12px; position: absolute; text-align: right"><span style="color: #0A6756; font-size: 24px; font-family: Montserrat; font-weight: 400; word-wrap: break-word"> 
+              Total Spending: </span><span style="color: #15C8A8; font-size: 24px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+                Rp.535.000,00</span>
+              </div>
+
+
+            <div class="TotalSpendingRp2000000000" style="width: 474px; height: 27px; left: 545px; top: 12px; position: absolute; text-align: right">
+              <span style="color: #0A6756; font-size: 24px; font-family: Montserrat; font-weight: 400; word-wrap: break-word"> 
+                Total Income: </span>
+                <span style="color: #15C8A8; font-size: 24px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+              Rp.22.000.000,00</span>
+            </div>
+
+
+          </div>
+
+          <div class="Monthselector" style="width: 421px; height: 33px; left: 522px; top: 9px; position: absolute">
+            <select id="selectedMonth" style="width: 200px; height: 33px; position: absolute; left: 0; top: -3px; text-align: center; color: #0A6756; font-size: 25px; font-family: Montserrat; font-weight: 600; border: none; outline: none; background-color: transparent;">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+            <select id="selectedYear" style="width: 200px; height: 33px; position: absolute; right: 0; top: -3px; text-align: center; color: #0A6756; font-size: 25px; font-family: Montserrat; font-weight: 600; border: none; outline: none; background-color: transparent;">
+
+              <option value="2024">2020</option>
+              <option value="2024">2021</option>
+              <option value="2024">2022</option>
+              <option value="2024">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+
+            </select>
+          </div>
+          
+          <div class="Notesscroller" id="note-container" style="width: 1464px; height: 835px; overflow-y: auto; overflow-x: hidden; left: 2px; top: 60px; position: absolute;">
+            <div class="Incomeexpenselist" style="width: 100%; height: auto; position: relative;">
+              <script>
+                function createIncomeExpenseItem(containerId, title, type, amount, date, backgroundColor, markColor, iconSrc) {
+                  const container = document.getElementById(containerId);
+                  const itemDiv = document.createElement('div');
+                  itemDiv.className = 'Item';
+                  itemDiv.style.width = '1465px';
+                  itemDiv.style.height = '92px';
+                  itemDiv.style.position = 'absolute';
+                  itemDiv.style.top = (container.children.length -1) * 96 + 'px'; 
+                  itemDiv.style.background = backgroundColor;
+                  itemDiv.style.transition = 'transform 0.3s';
+                  
+              
+                  const markDiv = document.createElement('div');
+                  markDiv.style.width = '10px';
+                  markDiv.style.height = '82px';
+                  markDiv.style.top = '6px';
+                  markDiv.style.left = '4px';
+                  markDiv.style.position = 'absolute';
+                  markDiv.style.borderRadius = '2px';
+                  markDiv.style.background = markColor;
+                  itemDiv.appendChild(markDiv);
+              
+                  const iconDiv = document.createElement('div');
+                  iconDiv.style.width = '70px';
+                  iconDiv.style.height = '70px';
+                  iconDiv.style.position = 'absolute';
+                  iconDiv.style.top = '10px';
+                  iconDiv.style.left = '25px';
+                  iconDiv.style.background = markColor;
+                  iconDiv.style.borderRadius = '9999px';
+              
+                  const iconImg = document.createElement('img');
+                  iconImg.style.height = '45px';
+                  iconImg.style.width = '45px';
+                  iconImg.style.position = 'absolute';
+                  iconImg.style.top = '12px';
+                  iconImg.style.left = '12px';
+                  iconImg.src = iconSrc;
+                  iconDiv.appendChild(iconImg);
+                  itemDiv.appendChild(iconDiv);
+              
+                  const titleSpan = document.createElement('span');
+                  titleSpan.className = 'Title';
+                  titleSpan.style.position = 'absolute';
+                  titleSpan.style.top = '20px';
+                  titleSpan.style.left = '110px';
+                  titleSpan.style.fontSize = '24px';
+                  titleSpan.style.fontWeight = '600';
+                  titleSpan.style.color = '#06100E';
+                  titleSpan.style.fontFamily = 'Montserrat';
+                  titleSpan.textContent = title;
+                  itemDiv.appendChild(titleSpan);
+              
+                  const typeSpan = document.createElement('span');
+                  typeSpan.className = 'Type';
+                  typeSpan.style.position = 'absolute';
+                  typeSpan.style.top = '50px';
+                  typeSpan.style.left = '114px';
+                  typeSpan.style.fontSize = '14px';
+                  typeSpan.style.color = '#06100E';
+                  typeSpan.style.fontFamily = 'Montserrat';
+                  typeSpan.textContent = type;
+                  itemDiv.appendChild(typeSpan);
+              
+                  const amountSpan = document.createElement('span');
+                  amountSpan.className = 'Amount';
+                  amountSpan.style.position = 'absolute';
+                  amountSpan.style.top = '20px';
+                  amountSpan.style.right = '90px';
+                  amountSpan.style.fontSize = '25px';
+                  amountSpan.style.fontWeight = '600';
+                  amountSpan.style.color = 'black';
+                  amountSpan.style.fontFamily = 'Montserrat';
+                  amountSpan.textContent = amount;
+                  itemDiv.appendChild(amountSpan);
+              
+                  const dateSpan = document.createElement('span');
+                  dateSpan.className = 'Date';
+                  dateSpan.style.position = 'absolute';
+                  dateSpan.style.bottom = '20px';
+                  dateSpan.style.right = '93px';
+                  dateSpan.style.fontSize = '20px';
+                  dateSpan.style.fontWeight = '500';
+                  dateSpan.style.color = '#5B7772';
+                  dateSpan.style.fontFamily = 'Montserrat';
+                  dateSpan.textContent = date;
+                  itemDiv.appendChild(dateSpan);
+              
+                  const button = document.createElement('button');
+                  button.style.border = 'none';
+                  button.style.background = 'none';
+                  button.style.padding = '0';
+                  button.style.margin = '0';
+                  button.style.cursor = 'pointer';
+                  button.style.position = 'absolute';
+                  button.style.right = '13px';
+                  button.style.top = '14px';
+                  button.onclick = function() {
+                    overlayTEon();
+                  };
+                  button.onmouseover = function() {
+                    this.style.filter = 'brightness(0.7)';
+                  };
+                  button.onmouseleave = function() {
+                    this.style.filter = 'brightness(1)';
+                  };
+              
+                  const buttonImg = document.createElement('img');
+                  buttonImg.style.height = '60px';
+                  buttonImg.style.width = '60px';
+                  buttonImg.style.transition = 'transform 0.3s';
+                  buttonImg.onmouseover = function() {
+                    this.style.transform = 'scale(1.2)';
+                  };
+                  buttonImg.onmouseleave = function() {
+                    this.style.transform = 'scale(1)';
+                  };
+                  buttonImg.src = 'assets/3bars.png';
+                  button.appendChild(buttonImg);
+                  itemDiv.appendChild(button);
+              
+                  container.appendChild(itemDiv);
+                }
+              
+                // Add multiple income/expense items
+                createIncomeExpenseItem('note-container', 'Gaji bulanan', 'Income', '+Rp.10.000.000,00', '15/10/2024', '#DFFAF5', '#0D9C82', 'assets/caticonother.png');
+                createIncomeExpenseItem('note-container', 'Jajan', 'Expense', '-Rp.20.000,00', '13/10/2024', '#F9E5E5', '#A02600', 'assets/caticonfood.png');
+                createIncomeExpenseItem('note-container', 'Traktir Teman', 'Expense', '-Rp.16.000,00', '12/10/2024', '#F9E5E5', '#A02600', 'assets/caticonfood.png');
+                createIncomeExpenseItem('note-container', 'Cinema XXI', 'Expense', '-Rp.99.000,00', '10/10/2024', '#F9E5E5', '#A02600', 'assets/caticonentertainment.png');
+                createIncomeExpenseItem('note-container', 'Dibayar Balik', 'Income', '+Rp.200.000,00', '8/10/2024', '#DFFAF5', '#0D9C82', 'assets/caticonother.png');
+                createIncomeExpenseItem('note-container', 'Gojek Pulang', 'Expense', '-Rp.26.000,00', '6/10/2024', '#F9E5E5', '#A02600', 'assets/caticontransportation.png');
+                createIncomeExpenseItem('note-container', 'Belanja Farmer Market', 'Expense', '-Rp.216.000,00', '6/10/2024', '#F9E5E5', '#A02600', 'assets/caticonshopping.png');
+                createIncomeExpenseItem('note-container', 'Bayar Utang', 'Expense', '-Rp.100.000,00', '5/10/2024', '#F9E5E5', '#A02600', 'assets/caticonother.png');
+                createIncomeExpenseItem('note-container', 'Jajan', 'Expense', '-Rp.56.000,00', '3/10/2024', '#F9E5E5', '#A02600', 'assets/caticonfood.png');
+                createIncomeExpenseItem('note-container', 'Gaji Bulanan Awal', 'Income', '+Rp.10.000.000,00', '1/10/2024', '#DFFAF5', '#0D9C82', 'assets/caticonfood.png');
+              </script>
+
+            </div>
+          </div>
+          
+
+
+          </div>
+
+          <div class="Navbar" style="width: 1920px; height: 70px; left: 0px; top: 0px; position: absolute;">
+            <div class="Navbarbox" style="width: 1920px; height: 70px; left: 0px; top: 0px; position: absolute; background: #13E3BE"></div>
+              <div class="Navigationtext" style="left: 720px; top: 24px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 150px; display: inline-flex">
+                <div class="Home" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word;">
+                  <a href="home.html" style="text-decoration: none; color: #ffffff; font-size: 20px; display: inline-block; transition: transform 0.3s;"
+                  onmouseover="this.style.transform='scale(1.5)'"
+                  onmouseleave="this.style.transform='scale(1)'">
+                    Home</a>  
+                </div>
+                <div class="Note" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word; 
+                background-color:#446359; border-radius: 10px;">
+                  <a href="note.html" style="text-decoration: none; color: #ffffff; font-size: 30px;">
+                    Notes</a>  
+                </div>
+                <div class="Calendar" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word;">
+                <a href="calender.html" style="text-decoration: none; color: #ffffff; font-size: 20px; display: inline-block; transition: transform 0.3s;"
+                onmouseover="this.style.transform='scale(1.5)'"
+                onmouseleave="this.style.transform='scale(1)'">
+                  Calendar
+                </a>  
+                </div>
+              </div>
+      
+              <span class="MoneyMinder" style="width: 200px; height: 31px; left: 91px; top: 19px; position: absolute; color: #FEFEFE; font-size: 24px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">
+                Money Minder</span>
+      
+              <img class="Navbarlogo" style="width: 40.50px; height: 40px; left: 30px; top: 15px; position: absolute" 
+              src="assets/MMlogo.png">
+      
+              <a href="login.html">
+                <img class="Exitlogo"style="width: 20px; height: 27px; left: 1880px; top: 19px; position: absolute; transition: transform 0.3s;"
+                onmouseover="this.style.transform='scale(1.5)'"
+                onmouseleave="this.style.transform='scale(1)'" 
+                src = assets/exiticon.png>
+              </a>
+          </div>
+
+        </div>
+
+
+
+
+
+
+        <script>
+          function overlayTAon() {
+            document.getElementById("overlayTA").style.display = "flex";
+          }
+          function overlayTAoff() {
+            document.getElementById("overlayTA").style.display = "none";
+          }
+      
+          function overlayTEon() {
+            document.getElementById("overlayTE").style.display = "flex";
+          }
+          function overlayTEoff() {
+            document.getElementById("overlayTE").style.display = "none";
+          }
+      
+          function overlayTOon() {
+            document.getElementById("overlayTO").style.display = "flex";
+          }
+          function overlayTOoff() {
+            document.getElementById("overlayTO").style.display = "none";
+          }
+      
+          function confirmDel() {
+            document.getElementById("overlayTO").style.display = "none";
+            document.getElementById("overlayTE").style.display = "none";
+          }
+          
+          function formatNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            input.value = "Rp. " + value;
+          }
+
+          function showMessage(message) {
+              // Create a message element
+              var messageElement = document.createElement('div');
+              messageElement.textContent = message;
+              messageElement.style.position = 'absolute';
+              messageElement.style.top = '50%';
+              messageElement.style.left = '50%';
+              messageElement.style.transform = 'translate(-50%, -50%)';
+              messageElement.style.background = 'rgba(255, 255, 255, 0.8)';
+              messageElement.style.padding = '10px';
+              messageElement.style.borderRadius = '5px';
+              messageElement.style.zIndex = '1000';
+
+              // Append the message element to the overlay
+              document.getElementById('overlayTA').appendChild(messageElement);
+
+              // Remove the message after 3 seconds
+              setTimeout(function() {
+                  messageElement.remove();
+              }, 3000);
+          }
+      
+        </script>
+
+
+
+
+
+
+
+
+        <div id="overlayTA" class="overlay" style="display: none; z-index: 999; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.5);">
+          <div class="Addtransactionoverlay" style="width: 999px; height: 597px; position: relative; 
+          background: #c8d8d8; border-radius: 15px; overflow: hidden">
+            
+            <span class="AddTransaction" style="width: 644px; height: 43px; left: 191px; top:20px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: bold; font-size: 35px;">
+              Add Transaction</span>
+
+            <div class="IncomeBtn" style="width: 219px; height: 40px; left: 523px; top: 523px; position: absolute;">
+              <button style="width: 219px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; 
+              background:#15C8A8; position: absolute; cursor: pointer; transition: transform 0.3s, brightness 0.3s;"
+              onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+              onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+                onclick="overlayTAoff()"
+                >
+                Income
+              </button>
+            </div>
+          
+            <div class="IncomeBtn" style="width: 219px; height: 40px; left: 290px; top: 522px; position: absolute;">
+              <button style="width: 219px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; 
+              background:#D48181; position: absolute; cursor: pointer; transition: transform 0.3s, brightness 0.3s;"
+              onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+              onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+                onclick="overlayTAoff()"
+                >
+                Expense
+              </button>
+            </div>
+          
+            <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; 
+              background: #F44C4C; border-radius: 9999px; position: relative; cursor: pointer; transition: transform 0.3s, brightness 0.3s;"
+              onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+              onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+              onclick="overlayTAoff()"
+              >
+          
+              <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+              X</span>
+            </button>
+          
+          
+            <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 170px; left: 30px; position: absolute">
+              <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+                Name</div>
+              <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+                <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+              </div>
+            </div>
+
+            <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 30px; top: 250px; position: absolute">
+              <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+                Description</div>
+              <div class="Rectangle18" style="width: 452px; height: 200px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+                <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+              </div>
+            </div>
+
+            <div class="Dategroup" style="width: 452px; height: 67px; right: 30px; top: 170px; position: absolute">
+              <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+                <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+              </div>
+              <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+                Date</div>
+            </div>
+
+            <div class="Costgroup" style="width: 452px; height: 67px; right: 30px; top: 250px; position: absolute">
+                <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+                    <input type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+                    oninput="formatNumber(this)" 
+                    style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+                </div>
+                <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+                  Cost</span>
+            </div>
+          
+              <div class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute;">
+                <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+                  Category
+                </span>
+                <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+                  <select id="addcategorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px; cursor: pointer;">
+                    <option disabled selected>Choose Category</option>
+                    <option value="food">Food</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="transportation">Transportation</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position: absolute;">
+                  <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+                  <img id="addcategoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+                  src="assets/caticonother.png">
+                </div>
+              </div>
+              <script>
+                document.getElementById('addcategorySelect').addEventListener('change', function() {
+                  var selectedValue = this.value;
+                  var imageSrc = '';
+                  switch(selectedValue) {
+                    case 'food':
+                      imageSrc = 'assets/caticonfood.png';
+                      break;
+                    case 'shopping':
+                      imageSrc = 'assets/caticonshopping.png';
+                      break;
+                    case 'transportation':
+                      imageSrc = 'assets/caticontransportation.png';
+                      break;
+                    case 'entertainment':
+                      imageSrc = 'assets/caticonentertainment.png';
+                      break;
+                    case 'other':
+                      imageSrc = 'assets/caticonother.png';
+                      break;
+                    default:
+                      imageSrc = '';
+                  }
+                  document.getElementById('addcategoryImage').src = imageSrc;
+                });
+              </script>
+        
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="overlayTE" class="overlay" style="display: none; z-index: 999; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.5);">
+      <div class="Edittransactionoverlay" style="width: 999px; height: 597px; position: relative; 
+      background: #c8d8d8; border-radius: 15px; overflow: hidden">
+        
+        <span class="EditTransaction" style="width: 644px; height: 43px; left: 191px; top: 20px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+          Edit Transaction</span>
+
+          <div class="Deletebtn" style="width: 473px; height: 40px; left: 276px; top: 521px; position: absolute;">
+            <button style="width: 473px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; background: #D48181; position: absolute; cursor: pointer; transition: transform 0.3s, brightness 0.3s;"
+            onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+            onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+              onclick="overlayTOon()"
+              > 
+              Delete Transaction
+            </button>
+          </div>
+      
+        <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; 
+          background: #F44C4C; border-radius: 9999px; position: relative; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+          onclick="overlayTEoff()"
+          >
+      
+          <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+          X</span>
+        </button>
+      
+      
+        <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 170px; left: 30px; position: absolute">
+          <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+            Name</div>
+          <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+          </div>
+        </div>
+
+        <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 30px; top: 250px; position: absolute">
+          <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+            Description</div>
+          <div class="Rectangle18" style="width: 452px; height: 200px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+          </div>
+        </div>
+
+        <div class="Dategroup" style="width: 452px; height: 67px; right: 30px; top: 170px; position: absolute">
+          <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+          </div>
+          <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+            Date</div>
+        </div>
+
+        <div class="Costgroup" style="width: 452px; height: 67px; right: 30px; top: 250px; position: absolute">
+            <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+                <input type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+                oninput="formatNumber(this)" 
+                style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+            </div>
+            <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+              Cost</span>
+        </div>
+        
+          <div class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute">
+            <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+              Category
+            </span>
+            <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+              <select id="editcategorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px; cursor: pointer">
+                <option disabled selected>Choose Category</option>
+                <option value="food">Food</option>
+                <option value="shopping">Shopping</option>
+                <option value="transportation">Transportation</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position:  absolute;">
+              <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+              <img id="editcategoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+              src="assets/caticonother.png">
+            </div>
+          </div>
+          <script>
+            document.getElementById('editcategorySelect').addEventListener('change', function() {
+              var selectedValue = this.value;
+              var imageSrc = '';
+              switch(selectedValue) {
+                case 'food':
+                  imageSrc = 'assets/caticonfood.png';
+                  break;
+                case 'shopping':
+                  imageSrc = 'assets/caticonshopping.png';
+                  break;
+                case 'transportation':
+                  imageSrc = 'assets/caticontransportation.png';
+                  break;
+                case 'entertainment':
+                  imageSrc = 'assets/caticonentertainment.png';
+                  break;
+                case 'other':
+                  imageSrc = 'assets/caticonother.png';
+                  break;
+                default:
+                  imageSrc = '';
+              }
+              document.getElementById('editcategoryImage').src = imageSrc;
+            });
+          </script>
+    
+    </div>
+</div>
+<div id="overlayTO" class="overlay" style="display: none; z-index: 999; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.5);">
+  <div class="AreyousureTransaction" style="width: 810px; height: 262px; position: relative; background: #F0F4F4; border-radius: 15px; overflow: hidden; border: 3px black solid">
+    <span class="DoYouWantToDeleteThisTransaction" style="width: 644px; height: 43px; left: 83px; top: 61px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+        Do You Want To Delete This Transaction?
+    </span>
+    <div class="Yesbtn" style="width: 219px; height: 40px; left: 146px; top: 167px; position: absolute">
+        <button class="Yesbtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+        background:#15C8A8; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+          onclick="confirmDel()"
+        >
+            Yes
+        </button>
+    </div>
+    <div class="Nobtn" style="width: 219px; height: 40px; left: 444px; top: 170px; position: absolute">
+        <button class="Nobtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+        background: #D48181; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+          onclick="overlayTOoff()"
+        >
+            No
+        </button>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

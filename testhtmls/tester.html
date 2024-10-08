@@ -1,0 +1,139 @@
+<div class="InteractiveCalendar" style="position: absolute; top: 130px; left: 93px;">
+    <style>
+        .calendar {
+            width: 150%; /* Adjusted */
+            height: 150%; /* Adjusted */
+            max-width: 450px; /* Adjusted */
+            margin: auto;
+            text-align: center;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            padding: 15px; /* Adjusted */
+            box-sizing: border-box;
+            font-family: "Courier New", Courier, monospace; /* Added */
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px; /* Adjusted */
+        }
+
+        .calendar-header button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 7.5px 15px; /* Adjusted */
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Courier New", Courier, monospace; /* Added */
+        }
+
+        .calendar-header h2 {
+            font-size: 20px; /* Adjusted */
+            font-family: "Courier New", Courier, monospace; /* Added */
+        }
+
+        .calendar-header button:hover {
+            background: #0056b3;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 7.5px; /* Adjusted */
+        }
+
+        .calendar-day {
+            padding: 15px; /* Adjusted */
+            background: #f4f4f4;
+            border-radius: 7.5px; /* Adjusted */
+            cursor: pointer;
+            box-sizing: border-box;
+            height: 60px; /* Adjusted */
+            font-size: 18px; /* Adjusted */
+            font-family: "Courier New", Courier, monospace; /* Added */
+        }
+
+        .calendar-day.highlighted {
+            background: #007BFF;
+            color: white;
+        }
+    </style>
+
+    <div class="calendar">
+        <div>
+            <div class="calendar-header">
+                <button onclick="previousMonth()">Previous</button>
+                <h2 id="calendar-month"></h2>
+                <button onclick="nextMonth()">Next</button>
+            </div>
+            <div class="calendar-days" id="calendar-days" style="height: 420px;"></div> <!-- Adjusted height -->
+        </div>
+    </div>
+
+    <script>
+        const calendarDays = document.getElementById('calendar-days');
+        const calendarMonth = document.getElementById('calendar-month');
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        function renderCalendar(month, year) {
+            calendarDays.innerHTML = '';
+            calendarMonth.innerText = `${monthNames[month]} ${year}`;
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.classList.add('calendar-day');
+                calendarDays.appendChild(emptyDiv);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.classList.add('calendar-day');
+                dayDiv.innerText = day;
+                dayDiv.onclick = () => {
+                    dayDiv.classList.toggle('highlighted');
+                };
+                calendarDays.appendChild(dayDiv);
+            }
+
+            // Fill the remaining cells to keep the size consistent
+            const totalCells = firstDay + daysInMonth;
+            const rows = Math.ceil(totalCells / 7);
+            const totalRequiredCells = rows * 7;
+
+            for (let i = totalCells; i < totalRequiredCells; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.classList.add('calendar-day');
+                calendarDays.appendChild(emptyDiv);
+            }
+        }
+
+        function previousMonth() {
+            if (currentMonth === 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else {
+                currentMonth--;
+            }
+            renderCalendar(currentMonth, currentYear);
+        }
+
+        function nextMonth() {
+            if (currentMonth === 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else {
+                currentMonth++;
+            }
+            renderCalendar(currentMonth, currentYear);
+        }
+
+        renderCalendar(currentMonth, currentYear);
+    </script>
+</div>

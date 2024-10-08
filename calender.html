@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - MoneyMinder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+ 
+    
+    <div class="Calendar" style="width: 1920px; height: 1080px; position: relative; background: #c2e2d9">
+
+        <div class="Paymentlist" style="width: 1145px; height: 686px; left: 721px; top: 233px; position: absolute">
+          
+          
+
+          <div class="Upcomingbox" style="width: 1145px; height: 641px; left: 0px; top: 0px; position: absolute; background: #DFFFF9;  border-radius: 10px"></div>
+            <div class="TotalDebtRp155000000" style="width: 474px; height: 27px; left: 647px; top: 659px; position: absolute; text-align: right">
+             
+
+            </span>
+            
+            </div>
+
+
+
+            <div class="Paybox" style="width: 1145px; height: 51px; position: absolute; bottom: 10px;">
+              <div class="Upcomingpaybox" style="width: 1145px; height: 51px; left: 0px; top: 0px; position: absolute; background: #C5EDE1; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom: 1px #819891 solid"></div>
+              <span class="UpcomingPayments3" style="width: 319.44px; height: 27px; left: 13.28px; top: 12px; position: absolute; color: #0A6756; font-size: 24px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">
+                Upcoming Payments: 9</span>
+              <div class="TotalCostsRp695000000" style="width: 418px; height: 27px; left: 709px; top: 12px; position: absolute; text-align: right">
+                <span style="color: #0A6756; font-size: 24px; font-family: Montserrat; font-weight: 400; word-wrap: break-word"> 
+                  Total Costs: </span>
+                <span style="color: #15C8A8; font-size: 24px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+                  Rp.3.288.000,00</span></div>
+            </div>
+
+              <div class="PayLaterScroller" id="note-container" style="width: 1140px; height: 560px; left: 2px; top: 60px; position: absolute; overflow-y: auto; overflow-x: hidden;">
+                <div class="Incomeexpenselist" style="width: 100%; height: auto; position: relative;">
+                  <script>
+                    function createPayLaterItem(containerId, title, amount, date, daysUntilDue, imgSrc, iconColor) {
+                      const container = document.getElementById(containerId);
+                      const itemDiv = document.createElement('div');
+                      itemDiv.className = 'Transactionsspent';
+                      itemDiv.style.width = '1103px';
+                      itemDiv.style.height = '64px';
+                      itemDiv.style.left = '33px';
+                      itemDiv.style.top = (container.children.length - 1) * 74 + 'px'; 
+                      itemDiv.style.position = 'absolute';
+                      
+                      const iconDiv = document.createElement('div');
+                      iconDiv.className = 'icon';
+                      iconDiv.style.width = '60px';
+                      iconDiv.style.height = '60px';
+                      iconDiv.style.left = '0px';
+                      iconDiv.style.top = '0px';
+                      iconDiv.style.position = 'absolute';
+                      iconDiv.style.background = iconColor;
+                      iconDiv.style.borderRadius = '9999px';
+                      
+                      const iconImg = document.createElement('img');
+                      iconImg.style.width = '40px';
+                      iconImg.style.height = '40px';
+                      iconImg.style.top = '10px';
+                      iconImg.style.left = '10px';
+                      iconImg.style.position = 'absolute';
+                      iconImg.src = imgSrc;
+                      iconDiv.appendChild(iconImg);
+                      itemDiv.appendChild(iconDiv);
+                      
+                      const titleSpan = document.createElement('span');
+                      titleSpan.className = 'BayarUtang';
+                      titleSpan.style.width = '296px';
+                      titleSpan.style.height = '28px';
+                      titleSpan.style.left = '80px';
+                      titleSpan.style.top = '0px';
+                      titleSpan.style.position = 'absolute';
+                      titleSpan.style.color = '#06100E';
+                      titleSpan.style.fontSize = '24px';
+                      titleSpan.style.fontFamily = 'Montserrat';
+                      titleSpan.style.fontWeight = '600';
+                      titleSpan.style.wordWrap = 'break-word';
+                      titleSpan.textContent = title;
+                      itemDiv.appendChild(titleSpan);
+                      
+                      const amountSpan = document.createElement('span');
+                      amountSpan.className = 'Rp15000000';
+                      amountSpan.style.width = '329px';
+                      amountSpan.style.height = '28px';
+                      amountSpan.style.left = '667px';
+                      amountSpan.style.top = '4px';
+                      amountSpan.style.position = 'absolute';
+                      amountSpan.style.textAlign = 'right';
+                      amountSpan.style.color = 'black';
+                      amountSpan.style.fontSize = '24px';
+                      amountSpan.style.fontFamily = 'Montserrat';
+                      amountSpan.style.fontWeight = '600';
+                      amountSpan.style.wordWrap = 'break-word';
+                      amountSpan.textContent = amount;
+                      itemDiv.appendChild(amountSpan);
+                      
+                      const dateSpan = document.createElement('span');
+                      dateSpan.className = '102077';
+                      dateSpan.style.width = '172px';
+                      dateSpan.style.height = '28px';
+                      dateSpan.style.left = '824px';
+                      dateSpan.style.top = '36px';
+                      dateSpan.style.position = 'absolute';
+                      dateSpan.style.textAlign = 'right';
+                      dateSpan.style.color = '#5B7772';
+                      dateSpan.style.fontSize = '14px';
+                      dateSpan.style.fontFamily = 'Montserrat';
+                      dateSpan.style.fontWeight = '500';
+                      dateSpan.style.wordWrap = 'break-word';
+                      dateSpan.textContent = date;
+                      itemDiv.appendChild(dateSpan);
+                      
+                      const button = document.createElement('button');
+                      button.style.border = 'none';
+                      button.style.background = 'none';
+                      button.style.padding = '0';
+                      button.style.margin = '0';
+                      button.style.cursor = 'pointer';
+                      button.style.position = 'absolute';
+                      button.style.right = '13px';
+                      button.style.top = '0px';
+                      button.onclick = function() {
+                        overlayPEon();
+                      };
+                      button.onmouseover = function() {
+                        this.style.filter = 'brightness(0.7)';
+                      };
+                      button.onmouseleave = function() {
+                        this.style.filter = 'brightness(1)';
+                      };
+                      
+                      const buttonImg = document.createElement('img');
+                      buttonImg.style.height = '60px';
+                      buttonImg.style.width = '60px';
+                      buttonImg.style.transition = 'transform 0.3s';
+                      buttonImg.onmouseover = function() {
+                        this.style.transform = 'scale(1.2)';
+                      };
+                      buttonImg.onmouseleave = function() {
+                        this.style.transform = 'scale(1)';
+                      };
+                      buttonImg.src = 'assets/3bars.png';
+                      button.appendChild(buttonImg);
+                      itemDiv.appendChild(button);
+                      
+                      const paymentSpan = document.createElement('div');
+                      paymentSpan.className = 'PaymentDueIn2Days';
+                      paymentSpan.style.width = '296px';
+                      paymentSpan.style.height = '28px';
+                      paymentSpan.style.left = '80px';
+                      paymentSpan.style.top = '36px';
+                      paymentSpan.style.position = 'absolute';
+                      paymentSpan.style.color = '#5B7772';
+                      paymentSpan.style.fontSize = '14px';
+                      paymentSpan.style.fontFamily = 'Montserrat';
+                      paymentSpan.style.fontWeight = '500';
+                      paymentSpan.style.wordWrap = 'break-word';
+                      paymentSpan.textContent = `Payment Due in ${daysUntilDue} Days`;
+                      itemDiv.appendChild(paymentSpan);
+                      
+                      container.appendChild(itemDiv);
+                    }
+                    
+                    // Add multiple transaction items with different images
+                    createPayLaterItem('note-container', 'Bayar Utang Blender', 'Rp.150.000.00', '4/10/2024', '1', 'assets/caticonshopping.png','#2be6f0');
+                    createPayLaterItem('note-container', 'Bayar Utang Bank', 'Rp.800.000.00', '6/10/2024', '3', 'assets/caticonother.png','#66A83E');
+                    createPayLaterItem('note-container', 'Bayar Utang Car Crash', 'Rp.600.000.00', '9/10/2024', '6', 'assets/caticontransportation.png','#db3d43');
+                    createPayLaterItem('note-container', 'Bayar Utang Mesin Cuci', 'Rp.200.000.00', '10/10/2024', '7', 'assets/caticonshopping.png','#2be6f0');
+                    createPayLaterItem('note-container', 'Bayar Utang Jajan', 'Rp.50.000,00', '12/10/2024', '9', 'assets/caticonfood.png','#fcba03');
+                    createPayLaterItem('note-container', 'Bayar Utang Minum', 'Rp.78.000.00', '12/10/2024', '9', 'assets/caticonfood.png','#fcba03');
+                    createPayLaterItem('note-container', 'Bayar Utang Teman', 'Rp.150.000.00', '12/10/2024', '9', 'assets/caticonother.png','#66A83E');
+                    createPayLaterItem('note-container', 'Bayar Utang Orang Tua', 'Rp.1.200.000,00', '18/10/2024', '15', 'assets/caticonother.png','#66A83E');
+                    createPayLaterItem('note-container', 'Bayar Utang Adik', 'Rp.60.000,00', '18/10/2024', '15', 'assets/caticonother.png','#66A83E');
+                    // Repeat the createPayLaterItem function call for each item you want to add
+                  </script>
+                </div>
+
+              
+              </div>
+              
+ 
+        </div>
+
+
+
+        <div class="Navbar" style="width: 1920px; height: 70px; left: 0px; top: 0px; position: absolute; box-shadow: 0px 2px 4px #00000040">
+
+    
+          <div class="Navbarbox" style="width: 1920px; height: 70px; left: 0px; top: 0px; position: absolute; background: #13E3BE"></div>
+            <div class="Navigationtext" style="left: 720px; top: 24px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 150px; display: inline-flex">
+              <div class="Home" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word;">
+                <a href="note.html" style="text-decoration: none; color: #ffffff; font-size: 20px; display: inline-block; transition: transform 0.3s;"
+                onmouseover="this.style.transform='scale(1.5)'"
+                onmouseleave="this.style.transform='scale(1)'">
+                  Home</a>  
+              </div>
+              <div class="Note" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word;">
+                <a href="note.html" style="text-decoration: none; color: #ffffff; font-size: 20px; display: inline-block; transition: transform 0.3s;"
+                   onmouseover="this.style.transform='scale(1.5)'"
+                   onmouseleave="this.style.transform='scale(1)'">
+                  Notes</a>  
+              </div>
+              <div class="Calendar" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word; 
+              background-color:#446359; border-radius: 10px;">
+                <a href="calender.html" style="text-decoration: none; color: #ffffff; font-size: 30px;">
+                  Calendar
+                </a>  
+              </div>
+              
+            </div>
+            
+            <span class="MoneyMinder" style="width: 200px; height: 31px; left: 91px; top: 19px; position: absolute; color: #FEFEFE; font-size: 24px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">
+              Money Minder</span>
+          
+          <img class="Navbarlogo" style="width: 40.50px; height: 40px; left: 30px; top: 15px; position: absolute" 
+          src="assets/MMlogo.png">
+          <a href="login.html">
+            <img class="Exitlogo"style="width: 20px; height: 27px; left: 1880px; top: 19px; position: absolute; transition: transform 0.3s;"
+            onmouseover="this.style.transform='scale(1.5)'"
+            onmouseleave="this.style.transform='scale(1)'" 
+            src = assets/exiticon.png>
+          </a>
+
+
+
+
+
+        <div class="CalenderPage" style="width: 491px; height: 641px; left: 113px; top: 221px; position: absolute">
+          <div class="Rectangle24" style="width: 491px; height: 641px; left: 0px; top: 0px; position: absolute; background: #DFFFF9;  border-radius: 10px"></div>
+          
+          <button class="addbutton" style="width: 89px; height: 89px; left: 387px; top: 534px; position: absolute; border: none; background: 
+          #15C8A8; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+            onclick="overlayPAon()"
+          >
+            <img style="width: 60px; height: 60px;" src="assets/plusbtn.png">
+        </button>
+        
+        
+
+         
+
+
+
+          
+          <div class="InteractiveCalendar" style="position: absolute; top: 20px; left: 25px;">
+            <style>
+                .calendar {
+                    width: 150%; /* Adjusted */
+                    height: 150%; /* Adjusted */
+                    max-width: 450px; /* Adjusted */
+                    margin: auto;
+                    text-align: center;
+                    padding: 15px; /* Adjusted */
+                    box-sizing: border-box;
+                    font-family: "Courier New", Courier, monospace; /* Added */
+                }
+        
+                .calendar-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px; /* Adjusted */
+                }
+        
+                .calendar-header button {
+
+                    border: none;
+                    padding: 7.5px 15px; /* Adjusted */
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-family: "Courier New", Courier, monospace; /* Added */
+                }
+        
+                .calendar-header h2 {
+                    font-size: 20px; /* Adjusted */
+                    font-family: "Courier New", Courier, monospace; /* Added */
+                }
+        
+                .calendar-header button:hover {
+                    background: #9ea1a1;
+                }
+        
+                .calendar-days {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    gap: 7.5px; /* Adjusted */
+                }
+        
+                .calendar-day {
+                    padding: 15px; /* Adjusted */
+                    background: #bbddcf;
+                    border-radius: 7.5px; /* Adjusted */
+                    cursor: pointer;
+                    box-sizing: border-box;
+                    height: 60px; /* Adjusted */
+                    font-size: 18px; /* Adjusted */
+                    font-family: "Courier New", Courier, monospace; /* Added */
+                    font-weight:bold;
+                }
+        
+                .calendar-day.highlighted {
+                    background: #0A6756;
+                    color: white;
+                }
+            </style>
+        
+            <div class="calendar">
+                <div>
+                    <div class="calendar-header">
+                        <button onclick="previousMonth()">
+                          <img style="width: 20px; height: 20px; position: relative; top: 3px; right: 0px;" 
+                          src="assets/arrowleft.png">
+                        </button>
+                        <h2 id="calendar-month"></h2>
+                        <button onclick="nextMonth()">
+                          <img style="width: 20px; height: 20px; position: relative; top: 3px; left: 0px;" 
+                          src="assets/arrowright.png">
+                        </button>
+                    </div>
+                    <div class="calendar-days" id="calendar-days" style="height: 420px;"></div> <!-- Adjusted height -->
+                </div>
+            </div>
+        
+            <script>
+                const calendarDays = document.getElementById('calendar-days');
+                const calendarMonth = document.getElementById('calendar-month');
+                let currentMonth = new Date().getMonth();
+                let currentYear = new Date().getFullYear();
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                const colors = ['#2be6f0', '#66A83E', '#db3d43', '#fcba03', '#b13ddb', '#db7a3d',"#bbddcf"];
+                let colorIndex = 0;
+
+                function renderCalendar(month, year) {
+                    calendarDays.innerHTML = '';
+                    calendarMonth.innerText = `${monthNames[month]} ${year}`;
+                    const firstDay = new Date(year, month, 1).getDay();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+        
+                    for (let i = 0; i < firstDay; i++) {
+                        const emptyDiv = document.createElement('div');
+                        emptyDiv.classList.add('calendar-day');
+                        calendarDays.appendChild(emptyDiv);
+                    }
+        
+                    for (let day = 1; day <= daysInMonth; day++) {
+                          const dayDiv = document.createElement('div');
+                          dayDiv.classList.add('calendar-day');
+                          dayDiv.innerText = day;
+                          dayDiv.onclick = () => {
+                              dayDiv.style.background = colors[colorIndex];
+                              colorIndex = (colorIndex + 1) % colors.length; // Cycle through colors
+                          };
+                          calendarDays.appendChild(dayDiv);
+                      }
+        
+                    // Fill the remaining cells to keep the size consistent
+                    const totalCells = firstDay + daysInMonth;
+                    const rows = Math.ceil(totalCells / 7);
+                    const totalRequiredCells = rows * 7;
+        
+                    for (let i = totalCells; i < totalRequiredCells; i++) {
+                        const emptyDiv = document.createElement('div');
+                        emptyDiv.classList.add('calendar-day');
+                        calendarDays.appendChild(emptyDiv);
+                    }
+                }
+        
+                function previousMonth() {
+                    if (currentMonth === 0) {
+                        currentMonth = 11;
+                        currentYear--;
+                    } else {
+                        currentMonth--;
+                    }
+                    renderCalendar(currentMonth, currentYear);
+                }
+        
+                function nextMonth() {
+                    if (currentMonth === 11) {
+                        currentMonth = 0;
+                        currentYear++;
+                    } else {
+                        currentMonth++;
+                    }
+                    renderCalendar(currentMonth, currentYear);
+                }
+        
+                renderCalendar(currentMonth, currentYear);
+            </script>
+        </div>
+        
+
+        </div>
+      </div>
+    
+
+      <script>
+        function overlayPAon() {
+          document.getElementById("overlayPA").style.display = "flex";
+        }
+        function overlayPAoff() {
+          document.getElementById("overlayPA").style.display = "none";
+        }
+    
+        function overlayPEon() {
+          document.getElementById("overlayPE").style.display = "flex";
+        }
+        function overlayPEoff() {
+          document.getElementById("overlayPE").style.display = "none";
+        }
+    
+        function overlayPOon() {
+          document.getElementById("overlayPO").style.display = "flex";
+        }
+        function overlayPOoff() {
+          document.getElementById("overlayPO").style.display = "none";
+        }
+    
+        function confirmDelP() {
+          document.getElementById("overlayPO").style.display = "none";
+          document.getElementById("overlayPE").style.display = "none";
+        }
+        
+        function formatNumber(input) {
+          let value = input.value.replace(/\D/g, '');
+          value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+          input.value = "Rp. " + value;
+        }
+    
+      </script>
+
+      
+
+      <div id="overlayPA" class="overlay" style="display: none; z-index: 999; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.5);">
+        <div class="Addpayoverlay" style="width: 999px; height: 597px; position: relative; 
+        background: #c8d8d8; border-radius: 15px; overflow: hidden">
+          
+          <span class="AddTransaction" style="width: 644px; height: 43px; left: 191px; top:20px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600;">
+            Add Pay Later</span>
+
+          <div class="addpaylater" style="width: 442px; height: 40px; left: 300px; top: 523px; position: absolute;">
+              <button style="width: 442px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; font-family: Montserrat; word-wrap: break-word; border: none; background: #15C8A8; position: absolute; cursor: pointer; transition: transform 0.3s, brightness 0.3s;"
+              onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+              onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+                onclick="overlayPAoff()"
+                >
+               Add Pay Reminder
+              </button>
+          </div>
+        
+          <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; 
+            background: #F44C4C; border-radius: 9999px; position: relative; transition: transform 0.3s, brightness 0.3s;"
+              onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+              onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+              onclick="overlayPAoff()"
+            >
+        
+            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+            X</span>
+          </button>
+        
+        
+          <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 170px; left: 30px; position: absolute">
+            <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+              Name</div>
+            <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+              <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+            </div>
+          </div>
+  
+          <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 30px; top: 250px; position: absolute">
+            <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+              Description</div>
+            <div class="Rectangle18" style="width: 452px; height: 200px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+              <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+            </div>
+          </div>
+  
+          <div class="Dategroup" style="width: 452px; height: 67px; right: 30px; top: 170px; position: absolute">
+            <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+              <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+            </div>
+            <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+              Date</div>
+          </div>
+  
+          <div class="Costgroup" style="width: 452px; height: 67px; right: 30px; top: 250px; position: absolute">
+              <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+                  <input type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+                  oninput="formatNumber(this)" 
+                  style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+              </div>
+              <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+                Cost</span>
+          </div>
+          
+            <div class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute">
+              <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+                Category
+              </span>
+              <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+                <select id="addcategorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px; cursor: pointer;">
+                  <option disabled selected>Choose Category</option>
+                  <option value="food">Food</option>
+                  <option value="shopping">Shopping</option>
+                  <option value="transportation">Transportation</option>
+                  <option value="entertainment">Entertainment</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position: absolute;">
+                <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+                <img id="addcategoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+                src="assets/caticonother.png">
+              </div>
+            </div>
+            <script>
+              document.getElementById('addcategorySelect').addEventListener('change', function() {
+                var selectedValue = this.value;
+                var imageSrc = '';
+                switch(selectedValue) {
+                  case 'food':
+                    imageSrc = 'assets/caticonfood.png';
+                    break;
+                  case 'shopping':
+                    imageSrc = 'assets/caticonshopping.png';
+                    break;
+                  case 'transportation':
+                    imageSrc = 'assets/caticontransportation.png';
+                    break;
+                  case 'entertainment':
+                    imageSrc = 'assets/caticonentertainment.png';
+                    break;
+                  case 'other':
+                    imageSrc = 'assets/caticonother.png';
+                    break;
+                  default:
+                    imageSrc = '';
+                }
+                document.getElementById('addcategoryImage').src = imageSrc;
+              });
+            </script>
+      
+      </div>
+  </div>
+
+
+
+
+
+
+  <div id="overlayPE" class="overlay" style="display: none; z-index: 999; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.5);">
+    <div class="Editpayoverlay" style="width: 999px; height: 597px; position: relative; 
+    background: #c8d8d8; border-radius: 15px; overflow: hidden">
+      
+      <span class="EditTransaction" style="width: 644px; height: 43px; left: 191px; top: 20px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+        Edit Transaction</span>
+
+        <div class="Deletebtn" style="width: 473px; height: 40px; left: 276px; top: 521px; position: absolute;">
+          <button style="width: 473px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; 
+          background:#D48181; position: absolute; cursor: pointer; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+            onclick="overlayPOon()"
+            > 
+            Delete Pay Later
+          </button>
+        </div>
+    
+      <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; 
+        background: #F44C4C; border-radius: 9999px; position: relative; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+        onclick="overlayPEoff()"
+        >
+    
+        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+        X</span>
+      </button>
+    
+    
+         <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 170px; left: 30px; position: absolute">
+          <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+            Name</div>
+          <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+          </div>
+        </div>
+
+        <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 30px; top: 250px; position: absolute">
+          <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+            Description</div>
+          <div class="Rectangle18" style="width: 452px; height: 200px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+          </div>
+        </div>
+
+        <div class="Dategroup" style="width: 452px; height: 67px; right: 30px; top: 170px; position: absolute">
+          <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+          </div>
+          <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+            Date</div>
+        </div>
+
+        <div class="Costgroup" style="width: 452px; height: 67px; right: 30px; top: 250px; position: absolute">
+            <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+                <input type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+                oninput="formatNumber(this)" 
+                style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+            </div>
+            <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+              Cost</span>
+        </div>
+      
+        <div class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute">
+          <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+            Category
+          </span>
+          <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+            <select id="editcategorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px; cursor: pointer;">
+              <option disabled selected>Choose Category</option>
+              <option value="food">Food</option>
+              <option value="shopping">Shopping</option>
+              <option value="transportation">Transportation</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position: absolute;">
+            <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+            <img id="editcategoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+            src="assets/caticonother.png">
+          </div>
+        </div>
+        <script>
+          document.getElementById('editcategorySelect').addEventListener('change', function() {
+            var selectedValue = this.value;
+            var imageSrc = '';
+            switch(selectedValue) {
+              case 'food':
+                imageSrc = 'assets/caticonfood.png';
+                break;
+              case 'shopping':
+                imageSrc = 'assets/caticonshopping.png';
+                break;
+              case 'transportation':
+                imageSrc = 'assets/caticontransportation.png';
+                break;
+              case 'entertainment':
+                imageSrc = 'assets/caticonentertainment.png';
+                break;
+              case 'other':
+                imageSrc = 'assets/caticonother.png';
+                break;
+              default:
+                imageSrc = '';
+            }
+            document.getElementById('editcategoryImage').src = imageSrc;
+          });
+        </script>
+  
+  </div>
+</div>
+<div id="overlayPO" class="overlay" style="display: none; z-index: 999; position: fixed; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.5);">
+<div class="Areyousurepaylater" style="width: 810px; height: 262px; position: relative; background: #F0F4F4; border-radius: 15px; overflow: hidden; border: 3px black solid">
+  <span class="DoYouWantToDeleteThisPayReminder" style="width: 644px; height: 43px; left: 83px; top: 61px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+    Do You Want To Delete This Pay Reminder?
+</span>
+  <div class="Yesbtn" style="width: 219px; height: 40px; left: 146px; top: 167px; position: absolute">
+      <button class="Yesbtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+      background:#15C8A8; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+        onclick="confirmDelP()"
+      >
+          Yes
+      </button>
+  </div>
+  <div class="Nobtn" style="width: 219px; height: 40px; left: 444px; top: 170px; position: absolute">
+      <button class="Nobtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+      background: #D48181; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+        onclick="overlayPOoff()"
+      >
+          No
+      </button>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

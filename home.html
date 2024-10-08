@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-MoneyMinder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>    
+  <div class="Home" style="width: 1920px; height: 1080px; position: absolute; background: #c2e2d9">
+    
+
+    <div id="notif-container" class="Notiferror" style="width: 1845px; height: 40px; left: 50px; top: 868px; position: absolute; display: none; transition: transform 0.3s;"
+    onmouseover="this.style.transform='scale(1.05)';"
+    onmouseleave="this.style.transform='scale(1)';"
+    >
+
+      <div class="Orangeerror" style="width: 1840px; height: 40px; left: 0px; top: 0px; position: absolute; background: #ff0000ab;  border-radius: 10px"></div>
+      <div class="Blueerror" style="width: 50px; height: 50px; right: 0px; top: -5px; position: absolute; background: #ffa600; border-radius: 9999px" >
+        <span style="width: 13.37px; height: 28px; left: 20px; top: 6px; position: absolute; color: white; font-size: 32px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">
+          !</span>
+      </div>
+      <span class="JumlahPengeluaranAndaBulanIniTelahMelebihiLimitPenggunaan" style="width: 724px; height: 28px; left: 20px; top: 10px; position: absolute; color: #FEFEFE; font-size: 20px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+        Jumlah pengeluaran anda bulan ini telah melebihi limit penggunaan</span>
+      
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          document.getElementById('notif-container').style.display = 'block';
+        }, 2500);
+      });
+    </script>
+
+
+
+
+    <div class="Chart" style="width: 1172px; height: 593px; left: 703px; top: 225px; position: absolute">
+      <div class="Chartbox" style="width: 1172px; height: 593px; left: 0px; top: 0px; position: absolute; background: #c7fff5;  border-radius: 10px; border-top-right-radius: 10px"></div>
+      <div class="Finangrowthbar" style="width: 1172px; height: 53.52px; left: 0px; top: 0px; position: absolute; background: #8edfd0;  border-top-left-radius: 10px; border-top-right-radius: 10px">
+          <span class="YourFinancialGrowthThisMonth" style="width: 600px; height: 28.48px; left: 355px; top: 12.08px; position: absolute; text-align: center; color: #0A6756; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+            Your Financial Growth This Month</span>
+      </div>
+
+      <div class="Graphs" style="width: 474px; height: 355px; left: 355px; top: 95px; position: absolute">
+        <img id="dailyImage" class="Graphdaily" style="display:block; width: 474px; height: 355px; left: 0px; top: 0px; position: absolute; border-radius: 10px;" 
+        src="assets/graphdaily.png" />
+        <img id="monthlyImage" class="Graphmonthly" style="display: none;width: 474px; height: 355px; left: 0px; top: 0px; position: absolute; border-radius: 10px;" 
+        src="assets/graphmonthly.png" />
+        <img id="yearlyImage" class="Graphyearly" style="display: none; width: 474px; height: 355px; left: 0px; top: 0px; position: absolute; border-radius: 10px;" 
+        src="assets/graphyearly.png" />
+        
+          
+          <button class="Daily" style="width: 189px; height: 44px; left: -81px; top: 393px; position: absolute; background: #6DDDC9;  border-radius: 10px; font-size: 20px; font-family: Montserrat; font-weight: 700; word-wrap: break-word; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+          onclick="showImage('daily')"  
+          >Daily</button>
+
+          <button class="Monthly" style="width: 189px; height: 45px; left: 143px; top: 394px; position: absolute; background: #6DDDC9;  border-radius: 10px; font-size: 20px; font-family: Montserrat; font-weight: 700; word-wrap: break-word ; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';" 
+          onclick="showImage('monthly')"          
+          >Monthly</button>
+
+          <button class="Yearly" style="width: 189px; height: 44px; left: 367px; top: 395px; position: absolute; background: #6DDDC9;  border-radius: 10px; font-size: 20px; font-family: Montserrat; font-weight: 700; word-wrap: break-word ; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';" 
+          onclick="showImage('yearly')"       
+          >Yearly</button>
+
+      </div>
+  </div>
+  <script>
+    function showImage(period) {
+
+        document.getElementById('dailyImage').style.display = 'none';
+        document.getElementById('monthlyImage').style.display = 'none';
+        document.getElementById('yearlyImage').style.display = 'none';
+
+        if (period === 'daily') {
+            document.getElementById('dailyImage').style.display = 'block';
+        } else if (period === 'monthly') {
+            document.getElementById('monthlyImage').style.display = 'block';
+        } else if (period === 'yearly') {
+            document.getElementById('yearlyImage').style.display = 'block';
+        }
+    }
+</script>
+
+
+
+
+    <div class="Spendlimiter" style="width: 620px; height: 244.79px; left: 50px; top: 553px; position: absolute">
+      <div class="Spendlimiterbox" style="width: 620px; height: 244.79px; left: 0px; top: 0px; position: absolute; background: #176B87; border-radius: 20px"></div>
+      <div class="Spendingbar" style="width: 549.14px; height: 34.50px; left: 35.43px; top: 96.93px; position: absolute">
+        
+        <!-- <div class="Empty" style="width: 549.14px; height: 16.43px; left: 0px; top: 9.86px; position: absolute; background: white; border-radius: 5px"></div>
+        <div class="Daily" style="width: 336.57px; height: 16.43px; left: 0px; top: 9.86px; position: absolute; background: #64CCC5B2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+        <div class="Monthly" style="width: 230.29px; height: 16.43px; left: 0px; top: 9.86px; position: absolute; background: #64CCC5"></div>
+        <div class="Limit" style="width: 7.09px; height: 34.50px; left: 336.57px; top: -0px; position: absolute; background: #D9D9D9; border-radius: 5px"></div> -->
+
+        <input type="range" min="0" max="30200000" value="0" id="volume-slider" class="volume-slider" oninput="updateSlider(this)">
+        <span id="slider-value" class="slider-value">Rp. 0</span>
+        <style>
+          /* Style the slider container */
+          .slider-container {
+            position: relative;
+            width: 550px; /* Adjust the width as needed */
+            margin: 20px 0;
+          }
+        
+          /* Style the slider */
+          .volume-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%; /* Adjust the width as needed */
+            height: 20px; /* Adjust the height as needed */
+            background: linear-gradient(to right, #64CCC5B2 50%, #d3d3d3 50%); /* Initial background showing 50% fill */
+            outline: none;
+            opacity: 1; /* Set opacity to 1 */
+          }
+          .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 10px; /* Thumb width */
+            height: 25px; /* Thumb height */
+            background: #D9D9D9; /* Thumb color */
+            cursor: pointer;
+            border-radius: 10; /* Make the thumb square */
+          }
+          .slider-value {
+            position: absolute;
+            top: -30px; /* Adjust as needed to position above the slider */
+            left: 50%; /* Initial positioning, will be updated by JS */
+            transform: translateX(-50%);
+            background: #fff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 14px;
+          }
+        </style>
+        
+        <script>
+          function formatRupiah(value) {
+            // Format the value as Rupiah
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(value);
+          }
+        
+          function updateSlider(slider) {
+            var value = slider.value;
+            var valueText = document.getElementById('slider-value');
+            var sliderWidth = slider.offsetWidth;
+            var thumbWidth = 25; // Thumb width set to 25px as fallback
+            var offset = (value - slider.min) / (slider.max - slider.min) * (sliderWidth - thumbWidth);
+            
+            valueText.textContent = formatRupiah(value);
+            valueText.style.left = `calc(${offset}px + 12.5px)`; // 12.5px is half of thumb width to center the text
+            slider.style.background = `linear-gradient(to right, #64CCC5B2 ${value / 302000}%, #8c9ead ${value / 302000}%)`;
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            var slider = document.getElementById('volume-slider');
+            updateSlider(slider); // Initialize the position of the text when the page loads
+          });
+        </script>
+        
+
+        
+
+      </div>
+
+      <div class="AccountSpendingLimitMonthlySetYourLimit" style="width: 268px; height: 51px; left: 94px; top: 27px; position: absolute">
+        <span style="color: white; font-size: 14px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">
+        Account Spending & Limit | Monthly<br/>
+        </span>
+        <span style="color: white; font-size: 14px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">
+          SET YOUR LIMIT!</span></div>
+      
+
+      <span class="Rp30200000" style="width: 99.20px; height: 18.07px; left: 485px; top: 193px; position: absolute; color: rgba(255, 255, 255, 0.80); font-size: 10px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">
+        Rp 30.200.000</span>
+      <span class="Rp000" style="width: 49.60px; height: 18.07px; left: 35.43px; top: 193.86px; position: absolute; color: rgba(255, 255, 255, 0.80); font-size: 10px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">
+        Rp 0.00</span>
+      <img class="Logo" style="width: 40.50px; height: 40px; left: 35px; top: 25px; position: absolute" 
+      src="assets/MMlogo.png" />
+    </div>
+
+    
+    
+    <div class="Balance" style="width: 618px; height: 252px; left: 50px; top: 251px; position: absolute">
+      <div class="Totalbalance" style="width: 618px; height: 252px; left: 0px; top: 0px; position: absolute">
+        <img class="Balancebox" style="width: 618px; height: 252px; left: 0px; top: 0px; position: absolute; border-radius: 10px" src="assets/balancebg.png" />
+        <div class="Balancesymbol" style="width: 64.74px; height: 31.02px; left: 500.29px; top: 182.22px; position: absolute; background: rgba(217, 217, 217, 0.20); border-radius: 2px"></div>
+        <img class="Union" style="width: 64.74px; height: 31.02px; left: 500.29px; top: 182.22px; position: absolute; border: 0.75px #B7E8DF solid" src="assets/balancebg2.png" />
+        <div class="Idr30200000" style="width: 345px; height: 28.83px; left: 190px; top: 92.90px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">IDR 30.200.000</div>
+        <div class="TotalBalance" style="width: 170.69px; height: 21.32px; left: 224px; top: 137.75px; position: absolute; color: rgba(0, 0, 0, 0.60); font-size: 24px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Total Balance</div>
+      </div>
+
+
+      <div class="Settingsbtn" style="width: 33.86px; height: 9.68px; left: 566px; top: 16px; position: absolute">
+        <!-- <div class="Eclipse" style="width: 10.16px; height: 9.68px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px"></div>
+        <div class="Eclipse" style="width: 10.16px; height: 9.68px; left: 11.85px; top: 0px; position: absolute; background: white; border-radius: 9999px"></div>
+        <div class="Eclipse" style="width: 10.16px; height: 9.68px; left: 23.70px; top: 0px; position: absolute; background: white; border-radius: 9999px"></div> -->
+      </div>
+
+      
+      <img class="Balancelogo" style="width: 85px; height: 85px; left: 80px; top: 80px; position: absolute" src="assets/MMlogo.png" />
+    </div>
+
+    
+
+    <div class="Navbar" style="width: 1920px; height: 70px; left: 0px; top: 0px; position: absolute; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25)">
+      
+        
+     
+
+      <div class="Navbarbox" style="width: 1920px; height: 70px; left: 0px; top: 0px; position: absolute; background: #13E3BE"></div>
+        <div class="Navigationtext" style="left: 720px; top: 24px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 150px; display: inline-flex">
+          <div class="Home" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word; background-color:#bcfcfc; border-radius: 10px;">
+            <a href="home.html" style="text-decoration: none; color: #ffffff; font-size: 30px; font-weight: 1000; 
+            background-color:#446359; border-radius: 10px;">
+              Home</a>  
+          </div>
+          <div class="Note" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word;">
+            <a href="note.html" style="text-decoration: none; color: #ffffff; font-size: 20px; display: inline-block; transition: transform 0.3s;"
+               onmouseover="this.style.transform='scale(1.5)'"
+               onmouseleave="this.style.transform='scale(1)'">
+              Notes</a>  
+          </div>          
+          <div class="Calendar" style="font-family: Montserrat, sans-serif; font-weight: bold; color: black; font-size: 18px; word-wrap: break-word;">
+          <a href="calender.html" style="text-decoration: none; color: #ffffff; font-size: 20px; display: inline-block; transition: transform 0.3s;"
+          onmouseover="this.style.transform='scale(1.5)'"
+          onmouseleave="this.style.transform='scale(1)'">
+            Calendar</a>  
+          </div>
+        </div>
+
+        <span class="MoneyMinder" style="width: 200px; height: 31px; left: 91px; top: 19px; position: absolute; color: #FEFEFE; font-size: 24px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">
+          Money Minder</span>
+          
+        <img class="Navbarlogo" style="width: 40.50px; height: 40px; left: 30px; top: 15px; position: absolute" 
+        src="assets/MMlogo.png">
+
+        <a href="login.html">
+          <img class="Exitlogo"style="width: 20px; height: 27px; left: 1880px; top: 19px; position: absolute; transition: transform 0.3s;"
+          onmouseover="this.style.transform='scale(1.5)'"
+          onmouseleave="this.style.transform='scale(1)'" 
+          src = assets/exiticon.png>
+        </a>
+        
+    </div>
+
+
+    <div class="Timebar" style="width: 1920px; height: 101px; left: 0px; top: 69px; position: absolute">
+      <div class="Timerbarbox" style="width: 1920px; height: 101px; left: 0px; top: 0px; position: absolute; background: rgba(37.71, 177.44, 152.29, 0.75)"></div>
+      <div class="Welcome" style="width: 555px; height: 67px; left: 37px; top: 13px; position: absolute">
+        <span class="HelloUser" style="width: 555px; left: 0px; top: 0px; position: absolute; color: white; font-size: 32px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">
+          Hello, User!</span>
+        <span class="WelcomeBackToMoneyMinder" style="width: 402px; left: 0px; top: 39px; position: absolute; color: #3F3A3A; font-size: 23px; font-family: Montserrat; font-weight: 500; word-wrap: break-word">
+          Welcome Back to Money Minder</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - MoneyMinder</title>
+    
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <script src="main.js" defer></script>
+    <style>
+        body, input, button, span, a, div {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Signup" style="width: 1920px; height: 1080px; position: relative; background: #D7FCF1">
+        <div class="Banner" style="width: 966px; height: 1122px; left: 954px; top: -41px; position: absolute">
+          <div class="Bannerbox" style="width: 966px; height: 1080px; left: 0px; top: 41px; position: absolute; background: linear-gradient(61deg, #1CFAD2 4%, #109D83 95%)"></div>
+          <div class="MoneyMinder" style="width: 543px; left: 78px; top: 447px; position: absolute; color: white; font-size: 64px; font-style: italic; font-weight: 700; word-wrap: break-word">Money Minder</div>
+          <div class="YourTrustedGuideToFinancialWellness" style="width: 798px; left: 78px; top: 545px; position: absolute; color: white; font-size: 36px; font-style: italic; font-weight: 500; word-wrap: break-word">"Your Trusted Guide to Financial Wellness"</div>
+          <img class="Womanfinancegrowth1" style="width: 494px; height: 364px; left: 78px; top: 758px; position: absolute" 
+          src="assets/growmoney.png">
+        </div>
+
+
+        <div class="AlreadyHaveAnAccountSignIn" style="left: 302px; top: 883px; position: absolute; text-align: center">
+
+          <span style="color: black; font-size: 16px; font-weight: 700; word-wrap: break-word">
+            Already Have an Account? 
+          </span>
+
+          <a href="login.html" style="color: #109D83; font-size: 16px; font-weight: 700; word-wrap: break-word">
+            Sign In!
+          </a>
+
+          </div>
+       
+          <button class="Usinggooglegroup" style="width: 364px; height: 41px; left: 262px; top: 782px; position: absolute; background: white; border-radius: 5px; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+          onclick="location.href='home.html'"
+      >
+          <img class="Googlelogo" style="width: 29px; height: 29px; left: 12px; top: 6px; position: absolute" src="assets/googleicon.png">
+          <span class="EnterUsingGoogle" style="width: 296px; left: 34px; top: 11px; position: absolute; text-align: center; color: black; font-size: 16px; font-weight: 600; word-wrap: break-word">
+              Enter Using Google
+          </span>
+      </button>
+      
+
+        <div class="Or" style="width: 364px; left: 262px; top: 716px; position: absolute">
+          <div class="Or" style="left: 163px; top: 0px; position: absolute; color: #6D6565; font-size: 24px; font-weight: 500; word-wrap: break-word">OR</div>
+          <div class="Line" style="width: 148px; height: 1px; left: 0px; top: 15px; position: absolute; background: black"></div>
+          <div class="Line" style="width: 148px; height: 1px; left: 216px; top: 16px; position: absolute; background: black"></div>
+        </div>
+
+
+        <form id="signupForm" onsubmit="signupValidateForm(event)">
+          <div class="Usernamegroup" style="width: 406px; height: 41px; left: 239px; top: 344px; position: absolute">
+              <div style="position: absolute; left: 10px;">
+                  <input id="username" class="Textfield" style="width: 346px; height: 41px; position: absolute; background: white;  border-radius: 5px; padding-left: 30px;" type="text" placeholder="Enter Your Username">
+                  <img class="person" style="width: 17px; height: 16px; left: 5px; top: 13px; position: absolute;" src="assets/iconperson.png">
+              </div>
+              <span id="usernameError" style="color: red; position: absolute; top: 45px; left: 10px;"></span>
+          </div>
+      
+          <div class="Mailgroup" style="width: 405px; height: 41px; left: 240px; top: 409px; position: absolute">
+              <div class="Usernamegroup" style="width: 405px; height: 41px; left: 0px; top: 0px; position: absolute">
+                  <div style="position: absolute; left: 10px;">
+                      <input id="email" class="Textfield" style="width: 346px; height: 41px; position: absolute; background: white;  border-radius: 5px; padding-left: 30px;" type="text" placeholder="Enter Your Email">
+                      <img class="mail" style="width: 20px; height: 16px; left: 5px; top: 13px; position: absolute;" src="assets/iconmail.png">
+                  </div>
+              </div>
+              <span id="emailError" style="color: red; position: absolute; top: 45px; left: 10px;"></span>
+          </div>
+      
+          <div class="Pwgroup" style="width: 406px; height: 41px; left: 239px; top: 474px; position: absolute">
+              <div style="position: absolute; left: 10px;">
+                  <input id="password" class="Textfield" style="width: 346px; height: 41px; position: absolute; background: white;  border-radius: 5px; padding-left: 30px;" type="password" placeholder="Enter Your Password">
+                  <img class="key" style="width: 22px; height: 15px; left: 5px; top: 13px; position: absolute;" src="assets/iconkey.png">
+                  <img class="eye" style="width: 22px; height: 15px; left: 356px; top: 13px; position: absolute; cursor: pointer;" src="assets/iconeye.png">
+              </div>
+              <span id="passwordError" style="color: red; position: absolute; top: 45px; left: 10px;"></span>
+          </div>
+      
+          <div class="Pwconfirmgroup" style="width: 406px; height: 41px; left: 239px; top: 539px; position: absolute">
+              <div style="position: absolute; left: 10px;">
+                  <input id="confirmPassword" class="Textfield" style="width: 346px; height: 41px; position: absolute; background: white;  border-radius: 5px; padding-left: 30px;" type="password" placeholder="Confirm Your Password">
+                  <img class="key" style="width: 22px; height: 15px; left: 5px; top: 13px; position: absolute;" src="assets/iconkey.png">
+                  <img class="eye" style="width: 22px; height: 15px; left: 356px; top: 13px; position: absolute; cursor: pointer;" src="assets/iconeye.png">
+              </div>
+              <span id="confirmPasswordError" style="color: red; position: absolute; top: 45px; left: 10px;"></span>
+          </div>
+      
+          <button id="signupButton" class="Createbtn" style="width: 364px; height: 41px; left: 262px; top: 642px; position: absolute;
+          background: #13c0a0; ;  border-radius: 5px; transition: transform 0.3s, brightness 0.3s;"
+          onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+          onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+              >
+              <span class="createAccountText" style="left: 101px; top: 9px; position: absolute; text-align: center; color: #FEFEFE; font-size: 20px; font-weight: 700; word-wrap: break-word">
+                  Create Account
+              </span>
+          </button>
+      </form>
+      
+      
+      <script>
+        document.getElementById('signupButton').addEventListener('click', signupValidateForm);
+
+        function signupValidateForm(event) {
+            event.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var usernameError = document.getElementById("usernameError");
+            var emailError = document.getElementById("emailError");
+            var passwordError = document.getElementById("passwordError");
+            var confirmPasswordError = document.getElementById("confirmPasswordError");
+
+            // Reset error messages
+            usernameError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            confirmPasswordError.textContent = '';
+
+            if (username === "") {
+                usernameError.textContent = "Username cannot be empty";
+                return;
+            }
+
+            if (!email.endsWith("@gmail.com")) {
+                emailError.textContent = "Email must end with @gmail.com";
+                return;
+            }
+
+            if (!checkPassword(password)) {
+                passwordError.textContent = "Password must be >8 characters and contain both numbers and characters";
+                return;
+            }
+
+            if (confirmPassword !== password) {
+                confirmPasswordError.textContent = "Passwords do not match";
+                return;
+            }
+
+            // If all validations pass, redirect to home page
+            window.location.href = 'home.html';
+        }
+
+        // Function to check password strength
+        function checkPassword(password) {
+            if (password.length < 8) {
+                return false;
+            }
+
+            var hasNumber = /\d/.test(password);
+            var hasLetter = /[a-zA-Z]/.test(password);
+
+            return hasNumber && hasLetter;
+        }
+
+        // Toggle password visibility
+        document.addEventListener('DOMContentLoaded', function() {
+        const eyeIcons = document.querySelectorAll('.eye');
+        eyeIcons.forEach((eyeIcon) => {
+        eyeIcon.addEventListener('click', () => {
+            // Get the input element that is two siblings before the eye icon
+            const input = eyeIcon.previousElementSibling.previousElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeIcon.src = 'assets/iconeyeclosed.png';
+            } else {
+                input.type = 'password';
+                eyeIcon.src = 'assets/iconeye.png';
+                   }
+             });
+            });
+        });
+
+      </script>
+      
+        <div class="SignUpText" style="height: 103px; left: 240px; top: 168px; position: absolute">
+          <div class="CreateANewAccount" style="width: 300px; left: 0px; top: 74px; position: absolute; color: #6D6565; font-size: 24px; font-weight: 500; word-wrap: break-word">Create a New Account</div>
+          <div class="SignUp" style="width: 351px; left: 0px; top: 0px; position: absolute; color: black; font-size: 64px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Sign Up</div>
+        </div>
+      </div>
+
+</body>
+</html>

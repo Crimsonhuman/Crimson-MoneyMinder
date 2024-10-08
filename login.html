@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login MoneyMinder</title>
+    
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loginstyle.css">
+    <script src="main.js" defer></script>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+  <div class="Login" style="width: 1920px; height: 1080px; top: 0px; position: absolute; background: #D7FCF1">
+ 
+    <div class="Banner" style="width: 982px; height: 1119px; left: 0px; top: -37px; position: absolute">
+      <div class="Bannerbox" style="width: 966px; height: 1080px; left: 0px; top: 37px; position: absolute; background: linear-gradient(295deg, #1CFAD2 4%, #109D83 95%)"></div>
+      <div class="MoneyMinder" style="width: 577px; left: 150px; top: 432px; position: absolute; color: white; font-size: 64px; font-style: italic; font-weight: 700; word-wrap: break-word">Money Minder</div>
+      <div class="YourTrustedGuideToFinancialWellness" style="width: 821px; left: 150px; top: 530px; position: absolute; color: white; font-size: 36px; font-style: italic; font-weight: 500; word-wrap: break-word">"Your Trusted Guide to Financial Wellness”</div>
+      
+      <img class="Womanfinancegrowth1" style="width: 494px; height: 364px; left: 0px; top: 755px; position: absolute" 
+      src="assets/growmoney.png" />
+    </div>
+
+    <div class="DonTHaveAnAccountSignUp" style="left: 1330px; top: 824px; position: absolute; text-align: center">
+      <span style="color: black; font-size: 16px; font-weight: 700; word-wrap: break-word">
+      Don’t Have an Account? 
+    </span>
+      <a href="register.html" style="color: #109D83; font-size: 16px; font-weight: 700; word-wrap: break-word">
+        Sign Up!
+      </a>
+    </div>
+    
+    <button class="Usinggooglegroup" style="width: 364px; height: 41px; left: 1284px; top: 723px; position: absolute; background: white;  border-radius: 5px; transition: transform 0.3s, brightness 0.3s;"
+    onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+    onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+    onclick="location.href='home.html'"
+    >
+
+      <img class="Googlelogo" style="width: 29px; height: 29px; left: 16px; top: 6px; position: absolute" 
+      src="assets/googleicon.png">
+
+      <div class="EnterUsingGoogle" style="width: 296px; left: 34px; top: 11px; position: absolute; text-align: center; color: black; font-size: 16px; font-weight: 600; word-wrap: break-word">Enter Using Google </div>
+    </button>
+
+    <div class="Or" style="width: 364px; left: 1284px; top: 659px; position: absolute">
+      <div class="Or" style="left: 163px; top: 0px; position: absolute; color: #6D6565; font-size: 24px; font-weight: 500; word-wrap: break-word">OR</div>
+      <div class="Line" style="width: 148px; height: 1px; left: 0px; top: 15px; position: absolute; background: black"></div>
+      <div class="Line" style="width: 148px; height: 1px; left: 216px; top: 16px; position: absolute; background: black"></div>
+    </div>
+
+
+    
+
+    <form id="loginForm" onsubmit="loginValidateForm(event)">
+      <div class="Usernamegroup" style="width: 406px; height: 41px; left: 1264px; top: 412px; position: absolute">
+        <div style="position: absolute; left: 10px;">
+          <input id="loginUsername" class="Textfield" style="width: 346px; height: 41px; position: absolute; background: white;  border-radius: 5px; padding-left: 30px;" type="text" placeholder="Enter Your Username or Email">
+          <img class="person" style="width: 17px; height: 16px; left: 5px; top: 13px; position: absolute;" src="assets/iconperson.png">
+        </div>
+        <span id="loginUsernameError" style="color: red; position: absolute; top: 45px; left: 10px;"></span>
+      </div>
+    
+      <div class="Pwgroup" style="width: 406px; height: 41px; left: 1265px; top: 482px; position: absolute">
+        <div style="position: absolute; left: 10px;">
+          <input id="loginPassword" class="Textfield" style="width: 346px; height: 41px; position: absolute; background: white;  border-radius: 5px; padding-left: 30px;" type="password" placeholder="Enter Your Password">
+          <img class="key" style="width: 22px; height: 15px; left: 5px; top: 15px; position: absolute;" src="assets/iconkey.png">
+          <img id="eye" class="eye" style="width: 22px; height: 15px; left: 356px; top: 16px; position: absolute; cursor: pointer;" src="assets/iconeye.png">
+        </div>
+        <span id="loginPasswordError" style="color: red; position: absolute; top: 45px; left: 10px;"></span>
+      </div>
+    
+      <button id="loginButton" class="Createbtn" style="width: 364px; height: 41px; left: 1284px; top: 583px; position: absolute; 
+      background: #13c0a0;  border-radius: 5px; display: flex; align-items: center; justify-content: center;transition: transform 0.3s, brightness 0.3s;"
+      onmouseover="this.style.filter='brightness(0.7)'; this.style.transform='scale(1.05)';"
+      onmouseleave="this.style.filter='brightness(1)'; this.style.transform='scale(1)';"
+      >
+          <span class="Enter" style="color: white; font-size: 21px; text-align: center; font-weight: bold;">
+            Enter
+          </span>
+      </button>
+    </form>
+    
+    <script>
+      const eyeIcon = document.getElementById('eye');
+      const passwordInput = document.getElementById('loginPassword'); // Corrected reference to the password input field
+
+      eyeIcon.addEventListener('click', () => {
+          if (passwordInput.type === 'password') {
+              passwordInput.type = 'text';
+              eyeIcon.src = 'assets/iconeyeclosed.png';
+          } else {
+              passwordInput.type = 'password';
+              eyeIcon.src = 'assets/iconeye.png';
+          }
+      });
+
+      document.getElementById('loginButton').addEventListener('click', loginValidateForm);
+
+      function loginValidateForm(event) {
+          event.preventDefault();
+
+          var username = document.getElementById("loginUsername").value;
+          var password = document.getElementById("loginPassword").value;
+          var usernameError = document.getElementById("loginUsernameError");
+          var passwordError = document.getElementById("loginPasswordError");
+
+          // Reset error messages
+          usernameError.textContent = '';
+          passwordError.textContent = '';
+
+          if (username === "") {
+              usernameError.textContent = "Username or Email cannot be empty";
+              return;
+          }
+
+          if (password === "") {
+              passwordError.textContent = "Password cannot be empty";
+              return;
+          }
+
+          // If all validations pass, redirect to home page (prototype)
+          window.location.href = 'home.html';
+      }
+
+    </script>
+    
+
+    <div class="SignInText" style="height: 103px; left: 1265px; top: 236px; position: absolute">
+      <span class="LogIn" style="width: 351px; left: 0px; top: 0px; position: absolute; color: black; font-size: 64px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">
+        Log In</span>
+      <span class="LogInToYourAccount" style="width: 2001px; left: 0px; top: 74px; position: absolute; color: #6D6565; font-size: 24px; font-weight: 500; word-wrap: break-word">
+        Log In to Your Account</span>
+    </div>
+  </div>
+
+</body>
+</html>

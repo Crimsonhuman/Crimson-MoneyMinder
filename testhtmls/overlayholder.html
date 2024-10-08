@@ -1,0 +1,525 @@
+
+<div class="Addtransactionoverlay" style="width: 999px; height: 597px; position: relative; background: #c8d8d8; border-radius: 15px; overflow: hidden">
+
+    <div class="IncomeBtn" style="width: 219px; height: 40px; left: 523px; top: 523px; position: absolute;">
+      <button id="incomeBtn" style="width: 219px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; background:#15C8A8; position: absolute; cursor: pointer;"
+        onmouseover="this.style.background='#129981'"
+        onmouseleave="this.style.background='#15C8A8'"
+        disabled>
+        Income
+      </button>
+    </div>
+
+    <div class="IncomeBtn" style="width: 219px; height: 40px; left: 290px; top: 522px; position: absolute;">
+      <button id="expenseBtn" style="width: 219px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; background: linear-gradient(90deg, #D48181 0%, #F5BEB2 100%); position: absolute; cursor: pointer;"
+        onmouseover="this.style.background='linear-gradient(90deg, #9e3f3f 0%, #c57a6d 100%)'"
+        onmouseleave="this.style.background='linear-gradient(90deg, #D48181 0%, #F5BEB2 100%)'"
+        disabled>
+        Expense
+      </button>
+    </div>
+
+    <span class="AddTransaction" style="width: 644px; height: 43px; left: 191px; top:20px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600;">
+      Add Transaction</span>
+
+    <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; background: #F44C4C; border-radius: 9999px; position: relative;"
+      onmouseover="this.style.background='#C0392B'"
+      onmouseleave="this.style.background='#F44C4C'"
+      onclick="overlayTAoff()"
+    >
+
+      <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+      X</span>
+    </button>
+
+
+    <div class="Costgroup" style="width: 452px; height: 67px; left: 290px; top: 425px; position: absolute">
+      <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <input id="transactionCost" type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+          oninput="formatNumber(this)" 
+          style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+      </div>
+      <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Cost</span>
+    </div>
+  
+    <div class="Dategroup" style="width: 452px; height: 67px; left: 290px; top: 347px; position: absolute">
+      <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+        <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+      </div>
+      <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Date</div>
+    </div>
+  
+    <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 290px; top: 212px; position: absolute">
+      <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Description</div>
+      <div class="Rectangle18" style="width: 452px; height: 88px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+        <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+      </div>
+    </div>
+    
+    <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 138px; position: absolute">
+      <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Name</div>
+      <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+        <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+      </div>
+    </div>
+  
+    <div id="categoryContainer" class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute">
+      <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Category
+      </span>
+      <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+        <select id="categorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+          <option disabled selected>Choose Category</option>
+          <option value="food">Food</option>
+          <option value="shopping">Shopping</option>
+          <option value="transportation">Transportation</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position: absolute;">
+        <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+        <img id="categoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+        src="assets/caticonother.png">
+      </div>
+    </div>
+    <script>
+  
+
+      function formatNumber(input) {
+        let value = input.value.replace(/\D/g, '');
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        input.value = "Rp. " + value;
+    }
+
+    </script>
+
+
+
+</div>
+
+
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+  <div class="Edittransactionoverlay" style="width: 999px; height: 597px; position: relative; background: #F0F4F4; border-radius: 15px; overflow: hidden">
+    
+    <div class="Deletebtn" style="width: 473px; height: 40px; left: 276px; top: 521px; position: absolute;">
+      <button style="width: 473px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; background: linear-gradient(90deg, #D48181 0%, #F5BEB2 100%); position: absolute; cursor: pointer;"
+        onmouseover="this.style.background='linear-gradient(90deg, #9e3f3f 0%, #c57a6d 100%)'" 
+        onmouseleave="this.style.background='linear-gradient(90deg, #D48181 0%, #F5BEB2 100%)'"
+        > 
+        Delete Transaction
+      </button>
+    </div>
+  
+    <span class="EditTransaction" style="width: 644px; height: 43px; left: 191px; top: 20px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+      Edit Transaction</span>
+
+      <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; 
+      background: #F44C4C; border-radius: 9999px; position: relative;"
+      onmouseover="this.style.background='#C0392B'"
+      onmouseleave="this.style.background='#F44C4C'"
+      >
+  
+      <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+        X</span>
+    </button>
+  
+  
+      <div class="Costgroup" style="width: 452px; height: 67px; left: 290px; top: 425px; position: absolute">
+        <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <input type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+            oninput="formatNumber(this)" 
+            style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+        </div>
+        <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Cost</span>
+    </div>
+    
+      <div class="Dategroup" style="width: 452px; height: 67px; left: 290px; top: 347px; position: absolute">
+        <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+        </div>
+        <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Date</div>
+      </div>
+    
+      <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 290px; top: 212px; position: absolute">
+        <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Description</div>
+        <div class="Rectangle18" style="width: 452px; height: 88px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+        </div>
+      </div>
+      
+      <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 138px; position: absolute">
+        <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Name</div>
+        <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+        </div>
+      </div>
+    
+      <div id="categoryContainer" class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute">
+        <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Category
+        </span>
+        <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+          <select id="categorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+            <option disabled selected>Choose Category</option>
+            <option value="food">Food</option>
+            <option value="shopping">Shopping</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position: absolute;">
+          <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+          <img id="categoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+          src="assets/caticonother.png">
+        </div>
+      </div>
+
+
+</div>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="Addpayreminder" style="width: 999px; height: 597px; position: relative; background: #F0F4F4; border-radius: 15px; overflow: hidden">
+    
+    <div class="Income" style="width: 442px; height: 40px; left: 300px; top: 523px; position: absolute;">
+      <button style="width: 442px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; background: #15C8A8; position: absolute; cursor: pointer;"
+        onmouseover="this.style.background='#129981'"
+        onmouseleave="this.style.background='#15C8A8'">
+       Add Pay Reminder
+      </button>
+  </div>
+  
+  <span class="AddPayReminder" style="width: 644px; height: 43px; left: 191px; top: 20px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+    Add Pay Reminder</span>
+
+  <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; 
+      background: #F44C4C; border-radius: 9999px; position: relative;"
+      onmouseover="this.style.background='#C0392B'"
+      onmouseleave="this.style.background='#F44C4C'"
+      >
+  
+      <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+        X</span>
+   </button>
+  
+  
+      <div class="Costgroup" style="width: 452px; height: 67px; left: 290px; top: 425px; position: absolute">
+        <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+            <input type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+            oninput="formatNumber(this)" 
+            style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+        </div>
+        <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Cost</span>
+    </div>
+    
+      <div class="Dategroup" style="width: 452px; height: 67px; left: 290px; top: 347px; position: absolute">
+        <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+        </div>
+        <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Date</div>
+      </div>
+    
+      <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 290px; top: 212px; position: absolute">
+        <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Description</div>
+        <div class="Rectangle18" style="width: 452px; height: 88px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+        </div>
+      </div>
+      
+      <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 138px; position: absolute">
+        <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Name</div>
+        <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+        </div>
+      </div>
+    
+      <div class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute">
+        <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+          Category
+        </span>
+        <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+          <select id="categorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+            <option disabled selected>Choose Category</option>
+            <option value="food">Food</option>
+            <option value="shopping">Shopping</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position: absolute;">
+          <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+          <img id="categoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+          src="assets/caticonother.png">
+        </div>
+      </div>
+
+
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="Editpayreminder" style="width: 999px; height: 597px; position: relative; background: #F0F4F4; border-radius: 15px; overflow: hidden">
+    
+    <div class="Deletebtn" style="width: 473px; height: 40px; left: 276px; top: 521px; position: absolute;">
+      <button style="width: 473px; height: 40px; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none; background: linear-gradient(90deg, #D48181 0%, #F5BEB2 100%); position: absolute; cursor: pointer;"
+        onmouseover="this.style.background='#9e3f3f'"
+        onmouseleave="this.style.background='linear-gradient(90deg, #D48181 0%, #F5BEB2 100%)'">
+        Delete Pay Reminder
+      </button>
+    </div>
+    
+    
+    <div class="Costgroup" style="width: 452px; height: 67px; left: 290px; top: 425px; position: absolute">
+      <div class="Costtextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+          <input type="text" inputmode="tel" placeholder="Rp. Enter Cost" 
+          oninput="formatNumber(this)" 
+          style="width: calc(100% - 20px); height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+      </div>
+      <span class="Cost" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Cost</span>
+  </div>
+  
+  <script>
+  function formatNumber(input) {
+      let value = input.value.replace(/\D/g, '');
+      value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      input.value = "Rp. " + value;
+  }
+  </script>
+  
+  
+  
+    <div class="Dategroup" style="width: 452px; height: 67px; left: 290px; top: 347px; position: absolute">
+      <div class="Calendertextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+        <input type="date" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+      </div>
+      <div class="Date" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Date</div>
+    </div>
+  
+    <div class="Descriptiongroup" style="width: 452px; height: 124px; left: 290px; top: 212px; position: absolute">
+      <div class="Description" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Description</div>
+      <div class="Rectangle18" style="width: 452px; height: 88px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+        <textarea placeholder="Enter Description" style="width: 100%; height: 100%; border: none; outline: none; padding: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; resize: none; border-radius: 15px;"></textarea>
+      </div>
+    </div>
+    
+    <div class="Transnamegroup" style="width: 452px; height: 67px; left: 287px; top: 138px; position: absolute">
+      <div class="Name" style="width: 223px; height: 32px; top: 0px; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Name</div>
+      <div class="Transactionnametextfield" style="width: 452px; height: 31px; top: 36px; position: absolute; background: white;  border-radius: 15px;">
+        <input type="text" placeholder="Enter Name" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+      </div>
+    </div>
+  
+    <div class="Categorygroup" style="width: 560px; height: 94px; left: 179px; top: 63px; left: 165px; position: absolute">
+      <span class="Category" style="width: 223px; height: 32px; top: 0px; left: 121px; position: absolute; color: black; font-size: 32px; font-family: Montserrat; font-weight: 500;">
+        Category
+      </span>
+      <div class="Dropdowntextfield" style="width: 510px; height: 31px; top: 37px; left: 108px; position: absolute; background: white;  border-radius: 15px;">
+        <select id="categorySelect" style="width: 100%; height: 100%; border: none; outline: none; padding-left: 10px; font-size: 20px; font-family: Montserrat; font-weight: 400; color: #8C8C8C; border-radius: 15px;">
+          <option disabled selected>Choose Category</option>
+          <option value="food">Food</option>
+          <option value="shopping">Shopping</option>
+          <option value="transportation">Transportation</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="other">Other</option>
+          <!-- Add more categories as needed -->
+        </select>
+      </div>
+      
+      <div class="TransactionIcon" style="width: 87px; height: 87px; top: 9px; left: 30px; position: absolute;">
+        <div class="Iconbox" style="width: 87px; height: 87px; background: #798494; border-radius: 9999px; border: 1px solid #747474;"></div>
+        <img id="categoryImage" class="IconImage" style="width: 60px; height: 60px; position: absolute; top: 13.5px; left:13.5px; align-items: center;" 
+        src="assets/caticonfood.png">
+      </div>
+    </div>
+    
+    <script>
+      document.getElementById('categorySelect').addEventListener('change', function() {
+        var selectedValue = this.value;
+        var imageSrc = '';
+        switch(selectedValue) {
+          case 'food':
+            imageSrc = 'assets/caticonfood.png';
+            break;
+          case 'shopping':
+            imageSrc = 'assets/caticonshopping.png';
+            break;
+          case 'transportation':
+            imageSrc = 'assets/caticontransportation.png';
+            break;
+          case 'entertainment':
+            imageSrc = 'assets/caticonentertainment.png';
+            break;
+          case 'other':
+            imageSrc = 'assets/caticonother.png';
+            break;
+          default:
+            imageSrc = '';
+        }
+        document.getElementById('categoryImage').src = imageSrc;
+      });
+    </script>
+        <button class="Exitbutton" style="width: 43px; height: 43px; left: 936px; top: 13px; position: absolute; 
+        background: #F44C4C; border-radius: 9999px; position: relative;"
+        onmouseover="this.style.background='#C0392B'"
+        onmouseleave="this.style.background='#F44C4C'"
+        >
+        
+        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-weight: bold;">
+          X</span>
+        </button>
+    <span class="EditPayReminder" style="width: 644px; height: 43px; left: 191px; top: 2px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+      Edit Pay Reminder</span>
+  </div>
+
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+  <div class="AreyousureTransaction" style="width: 810px; height: 262px; position: relative; background: #F0F4F4; border-radius: 15px; overflow: hidden; border: 3px black solid">
+      <span class="DoYouWantToDeleteThisTransaction" style="width: 644px; height: 43px; left: 83px; top: 61px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+          Do You Want To Delete This Transaction?
+      </span>
+      <div class="Yesbtn" style="width: 219px; height: 40px; left: 146px; top: 167px; position: absolute">
+          <button class="Yesbtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+          background:#15C8A8; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none;"
+            onmouseover="this.style.background='#107e6a'"
+            onmouseleave="this.style.background='#15C8A8'"
+          >
+              Yes
+          </button>
+      </div>
+      <div class="Nobtn" style="width: 219px; height: 40px; left: 444px; top: 170px; position: absolute">
+          <button class="Nobtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+          background: #D48181; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none;"
+            onmouseover="this.style.background='#9e3f3f'"
+            onmouseleave="this.style.background='#D48181'"
+          >
+              No
+          </button>
+      </div>
+  </div>
+  
+  
+
+  
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+  <div class="AreyousurePayreminder" style="width: 810px; height: 262px; position: relative; 
+  background: #F0F4F4; border-radius: 15px; overflow: hidden; border: 3px black solid">
+    <span class="DoYouWantToDeleteThisPayReminder" style="width: 644px; height: 43px; left: 83px; top: 61px; position: absolute; text-align: center; color: black; font-size: 32px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">
+        Do You Want To Delete This Pay Reminder?
+    </span>
+    <div class="Yesbtn" style="width: 219px; height: 40px; left: 146px; top: 167px; position: absolute">
+        <button class="Yesbtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+        background: #15C8A8; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none;"
+        onmouseover="this.style.background='#107e6a'"
+        onmouseleave="this.style.background='#15C8A8'"
+        >
+            Yes
+        </button>
+    </div>
+    <div class="Nobtn" style="width: 219px; height: 40px; left: 444px; top: 170px; position: absolute">
+        <button class="Nobtnbar" style="width: 219px; height: 40px; left: 0px; top: 0px; position: absolute; 
+        background:#D48181; border-radius: 20px; color: white; font-size: 32px; font-family: Montserrat; font-weight: 500; word-wrap: break-word; border: none;"
+        onmouseover="this.style.background='#9e3f3f'"
+        onmouseleave="this.style.background='#D48181'"
+        >
+            No
+        </button>
+    </div>
+</div>
+
+
+
